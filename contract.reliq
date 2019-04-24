@@ -1,0 +1,95 @@
+type event = {
+  date: timestamp,
+  value_str: option(string),
+  value_int: option(int),
+};
+type ownershipInterval = {
+  ownerAddress: address,
+  start: timestamp,
+  finish: option(timestamp),
+};
+type item = {
+  itemName: string,
+  history: list(event),
+  itemOwners: list(ownershipInterval),
+};
+type archive = big_map(string, item);
+type owner = { 
+  username: string,
+  ownerName: string,
+  validUntil: timestamp,
+  created: timestamp,
+};
+type storage = {
+  archive,
+  owners: map(address, owner),
+};
+let%init storage = {archive: BigMap([]), owners: Map([])}; /*let to_option i: 't -> i: 't option*/
+
+let isSenderValid = (ownerUsername: string, item_id: string) => {
+  /*switch (Map.find(ownerUsername, storage.owners)) {
+  | None => failwith(("Owner not found", item_id))
+  | Some(found_owner) =>
+    //stuff
+    if(found_owner.validUntil > Current.time()){
+      failwith(("Owner expired, please renew:", found_owner.validUntil));
+    };
+    storage;
+  };
+  switch (Map.find(item_id, storage.archive)) {
+  | None => failWith(("Item does not exists:", item_id));
+  | Some(found_item) =>
+    let a = 0;
+    a = Map.fold((((i, acc)) => {
+    //doshit
+    },
+    found_item.itemOwners,
+    0)
+  };*/
+  true;
+};
+
+let%entry main = ((username: string, ownerName: string), storage) => {//Register new owner
+  let new_owner:owner =
+    switch (Map.find(Current.sender(), storage.owners)) { 
+    | None =>
+      let new_owner: owner = {
+        username: username,
+        ownerName: ownerName,
+        created: Current.time(),
+        validUntil: Current.time() + 31536000,
+      };
+      new_owner;
+    | Some(found)=> 
+      let new_owner: owner = {
+        username: username,
+        ownerName: ownerName,
+        created: found.created,
+        validUntil: Current.time() + 31536000,
+      };
+      new_owner;
+    };
+  let storage = storage.owners = Map.add(Current.sender(), new_owner, storage.owners);
+  ([], storage);
+};
+let%entry addItem = ((item_id, item), storage) => { 
+  //TODO: Add owner validity checks
+  let arch = Map.add(item_id, item, storage.archive);
+  let storage = storage.archive = arch;
+  ([], storage);
+};
+let%entry addEvent = ((item_id, event), storage) => {
+  let storage =
+    switch (Map.find(item_id, storage.archive)) {
+    | None => failwith(("Item not found", item_id))
+    | Some(found_id) =>
+      let new_history: list(event) = [event, ...found_id.history];
+      let new_item: option(item) = Some(found_id.history = new_history);
+
+      let new_archive: big_map(string, item) =
+        Map.update(item_id, new_item, storage.archive);
+      let storage = storage.archive = new_archive;
+      storage;
+    };
+  ([], storage);
+};
