@@ -50,6 +50,7 @@ After a couple of very discouraging tries I gave up on it, and decided that the 
 I soon found out about **fi**, a very easy to write and read language that compiles to liquidity and looks very similar to javascript.  
 Very promising.  
 I was very excited, and wrote the first draft of the contract using it, but soon realized that the mantainers of that project haven't yet got around to porting all the liquidity features (I'm not talking about Type inference, I'm talking abount *functions*, which is a goddamn composite type in liquidity, stuff you're gonna need if you write something more complex than a voting contract).
+![A screenshot showing the "Function not supported" message that sent me away from fi-lang](./img/function-not-supported.png "Function not supported, the reason I switched to Reason")
 
 ### ReasonML syntax, a way to preserve sanity while writing Liquidity
 Cool, back to liquidity it was... but at least I decided to use the ReasonML syntax, which gave me a lot less headaches (I like parentheses more than I like dumb functional conventions).  
