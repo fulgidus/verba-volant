@@ -6,7 +6,7 @@
     - [Michelson and Liquidity](#michelson-and-liquidity)
     - [The false hope of **fi**](#the-false-hope-of-fi)
     - [ReasonML syntax, a way to preserve sanity while writing Liquidity](#reasonml-syntax-a-way-to-preserve-sanity-while-writing-liquidity)
-- [Reading material](#reading-material)
+- [Reading material needed to start working](#reading-material-needed-to-start-working)
 
 
 # Purpose of the Verba Volant Scripta Manent (VVSM)
@@ -50,10 +50,11 @@ After a couple of very discouraging tries I gave up on it, and decided that the 
 I soon found out about **fi**, a very easy to write and read language that compiles to liquidity and looks very similar to javascript.  
 Very promising.  
 I was very excited, and wrote the first draft of the contract using it, but soon realized that the mantainers of that project haven't yet got around to porting all the liquidity features (I'm not talking about Type inference, I'm talking abount *functions*, which is a goddamn composite type in liquidity, stuff you're gonna need if you write something more complex than a voting contract).
-![A screenshot showing the "Function not supported" message that sent me away from fi-lang](./img/function-not-supported.png "Function not supported, the reason I switched to Reason")
+![A screenshot showing the "Function not supported" message that sent me away from fi-lang](./media/function-not-supported.png "\"Function not supported\", the reason I switched to Reason")
 
 ### ReasonML syntax, a way to preserve sanity while writing Liquidity
-Cool, back to liquidity it was... but at least I decided to use the ReasonML syntax, which gave me a lot less headaches (I like parentheses more than I like dumb functional conventions).  
+Cool, back to liquidity it was... but at least I decided to use the ReasonML syntax, which gave me a lot less headaches (I like parentheses more than I like dumb functional conventions).
+![A gif showing the difference between pure Liquidity and ReasonMl](./media/reason-ml.gif "Shorter, clearer, even the comments are akin to the rest of the languages I used")
 
-# Reading material
+# Reading material needed to start working
 Everything you'll need is available on [Tezos.help](https://www.tezos.help/). I suggest you start by lloking at the [free Zastrin course](https://www.zastrin.com/courses/simple-tezos-dapp/lessons/1-3) and then read the better and more complete [Tezos capstone](https://tezoscapstone.com/) docs, all while keeping ready on a tab the [official Liquidity Reference](http://www.liquidity-lang.org/edit/doc/reference/liquidity.html#)
