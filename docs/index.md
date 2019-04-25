@@ -38,20 +38,22 @@ The features of VVSM will be as follow:
 
 # Learning how to make a Tezos smart contract
 ## Picking the language for the contract
-The first thing to do was obviously to find out how to write the code for the contract.
+The first thing to do is obviously to find out how to write the code for the contract.
 
 ### Michelson and Liquidity
-Being an ICO supporter and having seen the birth of this project I knew that the TVM runs on Michelson, a quasi-assembly hideous and unreadable language that *IMHO* is not supposed to be read by humans.
+Being an ICO supporter and having seen the birth of this project I know that the TVM uses Michelson, a quasi-assembly hideous and unreadable language that *IMHO* is not supposed to be read by humans.
 ![A screenshot showing the Michelson language](./media/michelson.png "I mean, look at it, it's literally unusable")  
 Although that's not an option (Akin to the Bytecode on the JVM), the Tezos ecosystem has a more human-compatible option: Liquidity, a language based on oCaml syntax (Funtional fanboys are gonna love it), which I never used or studied before.
 
 After a couple of very discouraging tries I gave up on it (because I'm lazy AF), and decided that the ReasonML syntax variant was going to probably be equally anti-intuitive to an Object Oriented guy as myself.
+You are obviously very encouraged to learn it as-is, being the official language used in the community.
 
 ### The false hope of **fi**
-I soon found out about **fi**, a very easy to write and read language that compiles to liquidity and looks very similar to javascript.  
-Very promising.  
+I have also heard some time ago about about **fi**, a very easy to read/write  language that compiles to liquidity and looks very similar to javascript.  
+Very promising. Very misleading.  
 I was very excited, and wrote the first draft of the contract using it, but soon realized that the mantainers of that project haven't yet got around to porting all the liquidity features (I'm not talking about Type inference, I'm talking abount *functions*, which is a goddamn composite type in liquidity, stuff you're gonna need if you write something more complex than a voting contract).
 ![A screenshot showing the "Function not supported" message that sent me away from fi-lang](./media/function-not-supported.png "\"Function not supported\", the reason I switched to Reason")
+I sincerely hope it will reach an usable state for more than simple contracts, I **REALLY** like it. But it wasn't enough for my project, you are, however invited to keep tabs on it's development and use it if it suits your needs
 
 ### ReasonML syntax, a way to preserve sanity while writing Liquidity
 Cool, back to liquidity it was... but at least I decided to use the ReasonML syntax, which gave me a lot less headaches (I like parentheses more than I like dumb functional conventions).
@@ -61,4 +63,4 @@ Cool, back to liquidity it was... but at least I decided to use the ReasonML syn
 Everything you'll need is available through [Tezos.help](https://www.tezos.help/).  
 I suggest you start by loking at the [free Zastrin course](https://www.zastrin.com/courses/simple-tezos-dapp/lessons/1-3) and then read the better and more complete [Tezos capstone](https://tezoscapstone.com/) docs.
 
-The actual development of the contract was done using the [liquidity-lang online editor](http://www.liquidity-lang.org/edit/) all while keeping ready on a tab the [official Liquidity Reference](http://www.liquidity-lang.org/edit/doc/reference/liquidity.html#)
+The actual development of the contract was done using the [liquidity-lang online editor](http://www.liquidity-lang.org/edit/) all while keeping ready on a tab the [official Liquidity Reference](http://www.liquidity-lang.org/edit/doc/reference/liquidity.html#).
