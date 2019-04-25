@@ -2,7 +2,7 @@
   - [MVP](#mvp)
     - [Possible further features](#possible-further-features)
 - [Learning how to make a Tezos smart contract](#learning-how-to-make-a-tezos-smart-contract)
-  - [Picking the language in which to write the contract](#picking-the-language-in-which-to-write-the-contract)
+  - [Picking the language for the contract](#picking-the-language-for-the-contract)
     - [Michelson and Liquidity](#michelson-and-liquidity)
     - [The false hope of **fi**](#the-false-hope-of-fi)
     - [ReasonML syntax, a way to preserve sanity while writing Liquidity](#reasonml-syntax-a-way-to-preserve-sanity-while-writing-liquidity)
@@ -37,14 +37,15 @@ The features of VVSM will be as follow:
   * Taxes/fees?
 
 # Learning how to make a Tezos smart contract
-## Picking the language in which to write the contract
+## Picking the language for the contract
 The first thing to do was obviously to find out how to write the code for the contract.
 
 ### Michelson and Liquidity
-Being an ICO supporter and having seen the birth of this project I knew that the TVM runs on Michelson, a quasi-assembly hideous and unreadable language that is not supposed to be read by humans.  
-Although that's not an option (Akin to the Bytecode on the JVM It's not supposed to be used directly), the Tezos ecosystem has a more human-compatible option: Liquidity, a language based on oCaml syntax (Funtional fanboys are gonna love it), which I never used or studied before.
+Being an ICO supporter and having seen the birth of this project I knew that the TVM runs on Michelson, a quasi-assembly hideous and unreadable language that *IMHO* is not supposed to be read by humans.
+![A screenshot showing the Michelson language](./media/michelson.png "I mean, look at it, it's literally unusable")  
+Although that's not an option (Akin to the Bytecode on the JVM), the Tezos ecosystem has a more human-compatible option: Liquidity, a language based on oCaml syntax (Funtional fanboys are gonna love it), which I never used or studied before.
 
-After a couple of very discouraging tries I gave up on it, and decided that the ReasonML syntax variant was going to probably be equally anti-intuitive to an Object Oriented guy as myself.
+After a couple of very discouraging tries I gave up on it (because I'm lazy AF), and decided that the ReasonML syntax variant was going to probably be equally anti-intuitive to an Object Oriented guy as myself.
 
 ### The false hope of **fi**
 I soon found out about **fi**, a very easy to write and read language that compiles to liquidity and looks very similar to javascript.  
@@ -57,4 +58,7 @@ Cool, back to liquidity it was... but at least I decided to use the ReasonML syn
 ![A gif showing the difference between pure Liquidity and ReasonMl](./media/reason-ml.gif "Shorter, clearer, even the comments are akin to the rest of the languages I used")
 
 # Reading material needed to start working
-Everything you'll need is available on [Tezos.help](https://www.tezos.help/). I suggest you start by lloking at the [free Zastrin course](https://www.zastrin.com/courses/simple-tezos-dapp/lessons/1-3) and then read the better and more complete [Tezos capstone](https://tezoscapstone.com/) docs, all while keeping ready on a tab the [official Liquidity Reference](http://www.liquidity-lang.org/edit/doc/reference/liquidity.html#)
+Everything you'll need is available through [Tezos.help](https://www.tezos.help/).  
+I suggest you start by loking at the [free Zastrin course](https://www.zastrin.com/courses/simple-tezos-dapp/lessons/1-3) and then read the better and more complete [Tezos capstone](https://tezoscapstone.com/) docs.
+
+The actual development of the contract was done using the [liquidity-lang online editor](http://www.liquidity-lang.org/edit/) all while keeping ready on a tab the [official Liquidity Reference](http://www.liquidity-lang.org/edit/doc/reference/liquidity.html#)
