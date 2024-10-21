@@ -18,22 +18,22 @@ In this case we will build a periodic maintenance book where we will record a ve
 The features of VVSM will be as follow:
 
 ## MVP
-* The contract will contain data structures called _Items_, which will contain information concerning the represented _item_ (e.g.: A motorcycle or other vehicle)
-* The contract will contain informations regarding ownership of the _items_ (_Items_ will be owned by _Owners_)
-* _Owners_ will be able to subscribe to the smart contract
-* The item will have a history of _events_, that may contain a string or a number as value and will have a timestamp of when they were inserted
-* No history _event_ will be deletable
+* The contract will contain data structures called `Items`, which will contain information concerning the represented `Item` (e.g.: A motorcycle or other vehicle)
+* The contract will contain informations regarding ownership of the `Items` (`Items` will be owned by `Owners`)
+* `Owners` will be able to subscribe to the smart contract
+* The `Item` will have a history of `Events`, that may contain a string or a number as value and will have a timestamp of when they were inserted
+* No history `Event` will be deletable
 * No Item will be deletable
-* _Items_ ownership will be transferable
-* Only an _Item owner_ will be able to add an _Event_ to an owned _item_, and only with a valid subscription
+* `Items` ownership will be transferable
+* Only an _Item owner_ will be able to add an `Event` to an owned `Item`, and only with a valid subscription
 
 ### Possible further features
-* Enrich _item_'s info with a picture
-* Encrypt _Owners_ information
-* Add special data structures for service points, that are able to add events to an Item wothout being owners of said items
-* Make _Service points_ able to edit an _Item_ only after the _Item's Owner_ has given them access to the item history
-* Allow private _Items/history_ visible only to _Owners_ and authorized _Service points_
-* Regulate an _Item_ transfer in exchange of money, having the smart contract act as Escrow
+* Enrich `Item`'s info with a picture
+* Encrypt `Owners` information
+* Add special data structures for service points, that are able to add events to an `Item` without being owners of said `Items`
+* Make `Service Points` able to edit an `Item` only after the _Item's Owner_ has given them access to the Item history
+* Allow private `Items`' history visible only to `Owners` and authorized `Service Points`
+* Regulate an `Item` transfer in exchange of money, having the smart contract act as Escrow
   * Taxes/fees?
 
 # Learning how to make a Tezos smart contract
@@ -50,10 +50,10 @@ You are obviously very encouraged to learn it as-is, being the official language
 
 ### The false hope of **fi**
 I have also heard some time ago about about **fi**, a very easy to read/write  language that compiles to liquidity and looks very similar to javascript.  
-Very promising. Very misleading.  
+Very promising.  
 I was very excited, and wrote the first draft of the contract using it, but soon realized that the mantainers of that project haven't yet got around to porting all the liquidity features (I'm not talking about Type inference, I'm talking abount *functions*, which is a goddamn composite type in liquidity, stuff you're gonna need if you write something more complex than a voting contract).
-![A screenshot showing the "Function not supported" message that sent me away from fi-lang](./media/function-not-supported.png "\"Function not supported\", the reason I switched to Reason")
-I sincerely hope it will reach an usable state for more than simple contracts, I **REALLY** like it. But it wasn't enough for my project, you are, however invited to keep tabs on it's development and use it if it suits your needs
+![A screenshot showing the "Function not supported" message that sent me away from fi-lang](./media/function-not-supported.png "\"Function not supported\", the reason I switched to Reason /jk")
+I sincerely hope it will reach an usable state for more than simple contracts, I **REALLY** like it. But it wasn't enough for my project, you are, however invited to keep tabs on it's development and use it if it suits your needs.
 
 ### ReasonML syntax, a way to preserve sanity while writing Liquidity
 Cool, back to liquidity it was... but at least I decided to use the ReasonML syntax, which gave me a lot less headaches (I like parentheses more than I like dumb functional conventions).
@@ -61,6 +61,6 @@ Cool, back to liquidity it was... but at least I decided to use the ReasonML syn
 
 # Reading material needed to start working
 Everything you'll need is available through [Tezos.help](https://www.tezos.help/).  
-I suggest you start by loking at the [free Zastrin course](https://www.zastrin.com/courses/simple-tezos-dapp/lessons/1-3) and then read the better and more complete [Tezos capstone](https://tezoscapstone.com/) docs.
+I suggest you start by looking at the [free Zastrin course](https://www.zastrin.com/courses/simple-tezos-dapp/lessons/1-3) and then read the better and more complete [Tezos capstone](https://tezoscapstone.com/) docs.
 
 The actual development of the contract was done using the [liquidity-lang online editor](http://www.liquidity-lang.org/edit/) all while keeping ready on a tab the [official Liquidity Reference](http://www.liquidity-lang.org/edit/doc/reference/liquidity.html#).
